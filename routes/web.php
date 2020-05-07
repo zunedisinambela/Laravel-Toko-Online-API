@@ -12,17 +12,9 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('auth.login');
+})->middleware('guest');
 
-Route::get('adminlte', function () {
-    return view('template.app');
-});
-
-Route::get('dashboard', function () {
-    return view('admin.dashboard');
-});
-
-Auth::routes();
+Auth::routes(['register' => false]);
 
 Route::get('/home', 'HomeController@index')->name('home');
