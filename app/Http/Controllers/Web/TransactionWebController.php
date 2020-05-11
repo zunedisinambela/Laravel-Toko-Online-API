@@ -29,9 +29,9 @@ class TransactionWebController extends Controller
 
     public function show($id)
     {
-        $transaction = DetailsTransaction::with('productRelation')->where('transaction_id',$id)->first();
+        $transaction = DetailsTransaction::with('productRelation')->where('transaction_id',$id)->get();
 
-        dd($transaction);
+        return view('admin.master.transaction.detail',compact('transaction'));
     }
 
     /**

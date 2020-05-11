@@ -44,7 +44,11 @@
                                     -
                                 @endif
                             </td>
-                            <td>[Opsi]</td>
+                            <td>
+                                <a href="{{ route('transaction.show',$tra->id) }}" class="btn btn-xs btn-primary">
+                                    <span class="fa fa-external-link"></span>
+                                </a>
+                            </td>
                         </tr>
                     @endforeach
                 <tbody>
