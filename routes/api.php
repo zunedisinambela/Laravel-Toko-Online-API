@@ -16,3 +16,20 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+// Respon Pertama API
+Route::get('hallo', function () {
+    $biodata = [
+        'nama' => 'Arjun Sinambela',
+        'email' => 'arjun@gmail.com',
+        'jenis-kelamin' => 'Pria',
+        'sosialmedia' => [
+            [
+                'facebook' => 'zunedisinambela',
+                'instagram' => 'arjun_sinambela'
+            ]
+        ]
+    ];
+
+    return \Response::json($biodata);
+});
