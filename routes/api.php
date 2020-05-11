@@ -37,3 +37,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 Route::get('users', 'Api\UsersController@index');
+
+Route::post('auth/login', 'Api\UsersController@login');
