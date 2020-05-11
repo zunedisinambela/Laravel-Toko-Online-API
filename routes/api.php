@@ -18,18 +18,22 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 // Respon Pertama API
-Route::get('hallo', function () {
-    $biodata = [
-        'nama' => 'Arjun Sinambela',
-        'email' => 'arjun@gmail.com',
-        'jenis-kelamin' => 'Pria',
-        'sosialmedia' => [
-            [
-                'facebook' => 'zunedisinambela',
-                'instagram' => 'arjun_sinambela'
-            ]
-        ]
-    ];
+// Route::get('hallo', function () {
+//     $biodata = [
+//         'nama' => 'Arjun Sinambela',
+//         'email' => 'arjun@gmail.com',
+//         'jenis-kelamin' => 'Pria',
+//         'sosialmedia' => [
+//             [
+//                 'facebook' => 'zunedisinambela',
+//                 'instagram' => 'arjun_sinambela'
+//             ]
+//         ]
+//     ];
 
-    return \Response::json($biodata);
-});
+//     return \Response::json($biodata);
+// });
+
+
+
+Route::get('users', 'Api\UsersController@index');
