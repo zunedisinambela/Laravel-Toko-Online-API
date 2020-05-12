@@ -42,4 +42,30 @@ class UsersController extends Controller
             ]
             ])->response()->setStatusCode(202);
     }
+
+    public function register(Request $request)
+    {
+        // return $request->all();
+
+        $this->validate($request,[
+            'name' => 'required|min:3',
+            'email' => 'required|unique:users|email',
+            'password' => 'required|min:3'
+        ]);
+
+        $newUser = User::create([
+            'name' => $request->name,
+            'username' => $request->name,
+            'email' => $request->email,
+            'password' => bcrypt($request->password),
+            'api_token' => bcrypt($request->name)
+        ]);
+
+        return (new UsersResource($newUser))->additional([
+            'status' => [
+                'code' => 201,
+                'description' => 'User Created'
+            ]
+        ])->response()->setStatusCode(201);
+    }
 }

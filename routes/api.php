@@ -34,8 +34,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 //     return \Response::json($biodata);
 // });
 
-
+// Pengaturan Post man
+// Bagian Header : key : accept & content-type value : application/json
+// Bagian body : pilih raw dan json
 
 Route::get('users', 'Api\UsersController@index');
 
 Route::post('auth/login', 'Api\UsersController@login');
+Route::post('auth/register', 'Api\UsersController@register');
